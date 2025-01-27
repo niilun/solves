@@ -28,6 +28,8 @@ int main() {
     vector<string> split_input;
     int i = 0;
 
+    if (!in || !outmax || !outpalindrome || !outsorted) cout << "Error when opening one or more files for read/write."; return 1;
+    
     // read and check for words matching conditions
     while(in >> str) {
         if (strlen(str) > strlen(maxword)) strcpy(maxword, str);
