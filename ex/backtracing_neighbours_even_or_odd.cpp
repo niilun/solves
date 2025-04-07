@@ -5,7 +5,7 @@ int n;
 
 bool findSuccessorExists(bool sucExists, int x[], int k) {
     if(x[k] < n) {
-        x[k]++;
+        x[k] += 1;
         sucExists = true;
     }
     else sucExists = false;
@@ -14,8 +14,13 @@ bool findSuccessorExists(bool sucExists, int x[], int k) {
 
 bool checkValid(bool isValid, int x[], int k) {
     isValid = true;
-    for(int i = 0; i < k; i++) {
-        if(x[i] == x[k]) isValid = false;
+    for(int i = 1; i < k; i++) {
+        if(x[i] == x[k]) {
+            isValid = false;
+        }
+    }
+    if(k >= 2 && ((x[k] % 2 == 0 && x[k - 1] % 2 == 0) || (x[k] % 2 == 1 && x[k - 1] % 2 == 1))) {
+        isValid = false;
     }
     return isValid;
 }
@@ -31,15 +36,12 @@ void printSolve(int arr[], int k) {
     cout << '\n';
 }
 
-int main()
-{
-    int x[100], k, solveCount = 0;
+int main() {
+    int x[100], k = 1, solveCount = 0;
     bool sucExists, isValid;
     x[k] = 0;
 
     cout << "n: "; cin >> n;
-    cout << "(optional, 0 to ignore) k: "; cin >> k;
-    if(k == 0) k = 1;
 
     while(k > 0) {
         sucExists = true; isValid = false;
