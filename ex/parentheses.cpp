@@ -9,15 +9,10 @@ int n;
 
 
 bool findSuccessorExists(int x[], int k) {
-
     if(x[k] < 1) {
-
         x[k]++;
-
         return true;
-
     }
-
     return false;
 
 }
@@ -25,21 +20,12 @@ bool findSuccessorExists(int x[], int k) {
 
 
 bool checkValid(int x[], int k) {
-
     int openCount = 0, closeCount = 0;
-
-
-
     for(int i = 0; i <= k; i++) {
-
         if (x[i] == 0) openCount++;
-
         else closeCount++;
-
         if(closeCount > openCount) return false;
-
     }
-
     return openCount <= n && closeCount <= n;
 
 }
@@ -47,30 +33,22 @@ bool checkValid(int x[], int k) {
 
 
 bool isSolve(int k) {
-
     return k == 2 * n - 1;
-
 }
 
 
 
 void printSolve(int arr[], int k) {
-
     for(int i = 0; i <= k; i++) {
-
         cout << (arr[i] == 0 ? '(' : ')');
-
     }
-
     cout << '\n';
 
 }
 
 
 
-int main()
-
-{
+int main() {
 
     int x[100], k = 0, solveCount = 0;
 
